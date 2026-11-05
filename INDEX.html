@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starters Listening Adventure</title>
+<style>
+:root{--blue:#1e88e5;--green:#43a047;--red:#e53935;--pink:#ec407a;--purple:#8e24aa;--navy:#243b63;--bg:#fff6d6}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Poppins","Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--navy)}
+.wrap{max-width:820px;margin:0 auto;padding:14px}
+.hero{background:var(--blue);color:#fff;border-radius:26px;padding:22px;text-align:center}
+.hero h1{margin:0;font-size:2rem;letter-spacing:1px}
+.hero p{margin:6px 0 0}
+.animals{font-size:4.5rem;text-align:center;margin:14px 0}
+.card{background:#fff;border-radius:22px;padding:16px;box-shadow:0 4px 14px rgba(0,0,0,.08);margin-top:14px}
+.btn{border:0;border-radius:999px;padding:12px 26px;font-size:1.1rem;font-weight:700;color:#fff;background:var(--blue);cursor:pointer;font-family:inherit}
+.btn:hover{filter:brightness(1.08)}
+.btn.green{background:var(--green)}.btn.orange{background:#fb8c00}.btn.grey{background:#78909c}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.center{text-align:center}
+.rounds{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
+.chip{padding:6px 14px;border-radius:999px;color:#fff;font-weight:700;font-size:.9rem}
+.bar{height:12px;background:#e3eefc;border-radius:99px;overflow:hidden;margin:8px 0}
+.bar>i{display:block;height:100%;background:var(--green);width:0;transition:width .3s}
+.rhead{border-radius:18px;color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:1.15rem}
+.rhead small{font-weight:400}
+.hint{font-size:.95rem;margin:10px 2px;color:#4a5b78}
+.qnum{display:inline-flex;width:44px;height:44px;border-radius:50%;color:#fff;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem}
+.qtext{font-size:1.3rem;font-weight:700;margin:10px 0}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.opt{position:relative;background:#fff;border:4px solid #90caf9;border-radius:20px;min-height:130px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;color:var(--navy);padding:8px}
+.opt:hover{transform:translateY(-2px)}
+.opt .lt{position:absolute;left:-6px;top:-8px;width:32px;height:32px;border-radius:50%;background:#ffd633;border:2px solid var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt.right{border-color:#2e7d32;background:#e8f5e9}
+.opt.wrong{border-color:#c62828;background:#ffebee}
+.opt.locked{pointer-events:none}
+.big{font-size:3.6rem;line-height:1}
+.txt{font-size:1.5rem;font-weight:800;text-align:center}
+.two{font-size:2.4rem;display:flex;gap:6px}
+.dot{width:60px;height:60px;border-radius:50%;border:4px solid #333}
+.lay{position:relative;width:100%;height:120px}
+.lay.v{display:flex;flex-direction:column;align-items:center;justify-content:space-around;font-size:2.4rem}
+.lay.h{display:flex;align-items:center;justify-content:space-around;font-size:2.6rem}
+.lay .b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:5.5rem}
+.lay .s{position:absolute;font-size:2.2rem}
+.fb{min-height:30px;font-weight:800;font-size:1.2rem;margin-top:12px;text-align:center}
+.nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.stars{font-size:3.2rem;letter-spacing:6px}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+td,th{border-bottom:1px solid #dde6f3;padding:6px 8px;text-align:left;font-size:.95rem;vertical-align:top}
+th{background:#eaf3ff}
+.hidden{display:none}
+.warn{background:#fff3cd;border-radius:14px;padding:10px 14px;font-size:.92rem;margin-top:10px}
+@media(max-width:560px){.opts{gap:8px}.big{font-size:2.8rem}.hero h1{font-size:1.5rem}}
+@media print{.noprint{display:none!important}body{background:#fff}.teacher-print{display:block!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- START -->
+<div id="start">
+  <div class="hero">
+    <h1>STARTERS LISTENING<br>ADVENTURE</h1>
+    <p><b>CUỘC PHIÊU LƯU LUYỆN NGHE TIẾNG ANH</b></p>
+    <p>Cambridge English Starters-inspired listening practice</p>
+  </div>
+  <div class="animals">🦊🐼</div>
+  <div class="center"><b style="font-size:1.2rem">Grade 2 · 5 rounds · 50 questions</b></div>
+  <div class="card">
+    <p>1. Bấm nút 🔊 để nghe. Mỗi câu được đọc <b>2 lần</b>, chậm và rõ ràng.</p>
+    <p>2. Nghe kỹ, rồi chọn đáp án đúng: <b>A, B hoặc C</b>.</p>
+    <p>3. Vòng 3 có màu sắc và hình dạng, các em nhìn thật kỹ nhé!</p>
+    <p>4. Cuối bài, em sẽ nhận được ngôi sao <b>Listening Star</b> ⭐</p>
+    <div class="center" style="margin-top:14px">
+      <input id="nm" placeholder="Tên của em / Name" style="padding:10px 14px;border-radius:14px;border:3px solid #90caf9;font-size:1.05rem;font-family:inherit;width:60%;max-width:300px"><br><br>
+      <button class="btn" onclick="startQuiz()">▶ Bắt đầu / Start</button>
+      <button class="btn grey" onclick="showTeacher()">👩‍🏫 Giáo viên</button>
+    </div>
+    <div class="warn">Bài nghe dùng giọng đọc có sẵn của trình duyệt (Chrome / Edge / Safari). Nếu không nghe thấy tiếng, hãy kiểm tra loa và bật âm lượng. Giáo viên có thể đọc trực tiếp theo phần "Giáo viên".</div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div id="quiz" class="hidden">
+  <div class="bar"><i id="pb"></i></div>
+  <div id="rh" class="rhead"></div>
+  <div class="hint" id="hint"></div>
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <span class="qnum" id="qn"></span>
+      <button class="btn orange" id="play" onclick="playQ()">🔊 Nghe / Listen</button>
+      <span id="pstat" style="font-weight:700"></span>
+    </div>
+    <div class="qtext" id="qt"></div>
+    <div class="opts" id="opts"></div>
+    <div class="fb" id="fb"></div>
+    <div class="nav">
+      <button class="btn grey" id="prev" onclick="go(-1)">◀ Câu trước</button>
+      <button class="btn green" id="next" onclick="go(1)">Câu tiếp ▶</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="hidden">
+  <div class="card center">
+    <h2 style="color:var(--blue);margin-top:0">MY LISTENING STAR</h2>
+    <div style="font-size:4rem">🏅</div>
+    <div id="rname" style="font-weight:700"></div>
+    <table id="rtab"></table>
+    <h2 id="rtotal"></h2>
+    <div class="stars" id="rstars"></div>
+    <p id="rmsg" style="font-weight:700"></p>
+    <button class="btn" onclick="startQuiz()">🔁 Làm lại</button>
+    <button class="btn grey" onclick="location.reload()">🏠 Trang đầu</button>
+  </div>
+</div>
+
+<!-- TEACHER -->
+<div id="teacher" class="hidden">
+  <div class="card">
+    <div class="noprint nav" style="justify-content:flex-start">
+      <button class="btn grey" onclick="location.reload()">◀ Quay lại</button>
+      <button class="btn" onclick="window.print()">🖨 In lời đọc & đáp án</button>
+    </div>
+    <h2>Teacher's Script & Answer Key – Starters Listening (Grade 2)</h2>
+    <p>Đọc <b>chậm và rõ ràng, mỗi câu 2 lần</b>, dừng khoảng 5 giây giữa các câu. Đọc "Number …" trước mỗi câu. Với Vòng 5, đọc đoạn ngắn 2 lần rồi mới cho học sinh chọn.</p>
+    <div id="tbody"></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+/* ---------- DATA ---------- */
+const RN=[
+ {n:"Round 1: Listen and Choose",c:"#1e88e5",h:"Nghe và chọn hình đúng (A, B hoặc C)."},
+ {n:"Round 2: Listen and Match",c:"#43a047",h:"Nghe câu và chọn hình phù hợp."},
+ {n:"Round 3: Listen and Colour",c:"#fb8c00",h:"Nghe và chọn hình có đúng hình dạng và màu sắc."},
+ {n:"Round 4: Listen and Find",c:"#ec407a",h:"Nghe và chọn hình có vị trí đúng."},
+ {n:"Round 5: Listen and Understand",c:"#8e24aa",h:"Nghe đoạn ngắn, đọc câu hỏi và chọn đáp án đúng."}
+];
+const COL={red:"#e53935",blue:"#1e88e5",green:"#43a047",yellow:"#fdd835",orange:"#fb8c00",pink:"#ec407a",purple:"#8e24aa",brown:"#6d4c41",black:"#222",white:"#fff",grey:"#9e9e9e"};
+const Q=[];
+function add(r,say,kind,opts,ans,q){Q.push({r,say,kind,opts,ans,q:q||""});}
+const E=(...a)=>a;
+
+/* Round 1 */
+add(0,"Find the fish.","e",E("🐶","🐟","⚽"),1);
+add(0,"Find the hat.","e",E("🍎","🐱","👒"),2);
+add(0,"Find the car.","e",E("🚗","🍌","🐦"),0);
+add(0,"Find the duck.","e",E("📖","🦆","🐟"),1);
+add(0,"Find the cake.","e",E("🍎","⚽","🍰"),2);
+add(0,"Find the dog.","e",E("👒","🚗","🐶"),2);
+add(0,"Find the book.","e",E("📖","🍌","🐱"),0);
+add(0,"Find the bird.","e",E("🦆","🐦","⚽"),1);
+add(0,"Find the cake.","e",E("🍰","👒","🐟"),0);
+add(0,"Find the banana.","e",E("🐶","🍎","🍌"),2);
+/* Round 2 */
+add(1,"The dog is sleeping.","e",E("🐶🏃","🐶💤","🐶🍖"),1);
+add(1,"The boy is reading a book.","e",E("👦⚽","👦💤","👦📖"),2);
+add(1,"The girl can swim.","e",E("👧🍎","👧🎵","👧🏊"),2);
+add(1,"The bird is eating an apple.","e",E("🐦☁️","🐦💤","🐦🍎"),2);
+add(1,"The boy likes football.","e",E("👦📖","👦⚽","👦🎵"),1);
+add(1,"The girl is sleeping.","e",E("👧🍎","👧💤","👧🏊"),1);
+add(1,"The cat is drinking milk.","e",E("🐱💤","🐱🥛","🐱🏃"),1);
+add(1,"The boy likes music.","e",E("👦🎵","👦🍎","👦🏊"),0);
+add(1,"The girl can run.","e",E("👧📖","👧🥛","👧🏃"),2);
+add(1,"The fish is swimming in the water.","e",E("🐟🌊","🐟💤","🐟🍎"),0);
+/* Round 3: [shape,color] */
+const S=(s,c)=>({s,c});
+add(2,"Find the red circle.","s",E(S("square","red"),S("circle","blue"),S("circle","red")),2);
+add(2,"Find the blue square.","s",E(S("square","blue"),S("square","green"),S("triangle","blue")),0);
+add(2,"Find the yellow star.","s",E(S("heart","yellow"),S("star","yellow"),S("star","orange")),1);
+add(2,"Find the green triangle.","s",E(S("circle","green"),S("triangle","red"),S("triangle","green")),2);
+add(2,"Find the pink heart.","s",E(S("heart","pink"),S("heart","purple"),S("star","pink")),0);
+add(2,"Find the orange circle.","s",E(S("square","orange"),S("circle","orange"),S("circle","yellow")),1);
+add(2,"Find the purple star.","s",E(S("star","purple"),S("star","blue"),S("heart","purple")),0);
+add(2,"Find the brown square.","s",E(S("square","black"),S("triangle","brown"),S("square","brown")),2);
+add(2,"Find the black triangle.","s",E(S("triangle","black"),S("circle","black"),S("triangle","grey")),0);
+add(2,"Find the red heart.","s",E(S("star","red"),S("heart","red"),S("heart","pink")),1);
+/* Round 4: position layouts */
+const V=(a,b)=>({t:"v",a,b}),H=(a,b)=>({t:"h",a,b}),IN=(big,small)=>({t:"in",big,small}),BH=(big,small)=>({t:"bh",big,small}),ON=(big,small)=>({t:"on",big,small});
+add(3,"The cat is under the chair.","p",E(V("🪑","🐱"),V("🐱","🪑"),H("🪑","🐱")),0);
+add(3,"The ball is in the box.","p",E(V("📦","⚽"),IN("📦","⚽"),H("⚽","📦")),1);
+add(3,"The dog is under the chair.","p",E(H("🐶","🪑"),V("🪑","🐶"),V("🐶","🪑")),1);
+add(3,"The apple is in the bag.","p",E(V("🍎","🎒"),V("🎒","🍎"),IN("🎒","🍎")),2);
+add(3,"The hat is on the bed.","p",E(V("👒","🛏️"),ON("🛏️","👒"),H("👒","🛏️")),1);
+add(3,"The cat is behind the tree.","p",E(H("🐱","🌳"),BH("🌳","🐱"),V("🐱","🌳")),1);
+add(3,"The dog is under the car.","p",E(H("🐶","🚗"),V("🐶","🚗"),V("🚗","🐶")),2);
+add(3,"The book is next to the bed.","p",E(BH("🛏️","📖"),H("📖","🛏️"),V("📖","🛏️")),1);
+add(3,"The duck is under the tree.","p",E(H("🦆","🌳"),V("🌳","🦆"),V("🦆","🌳")),1);
+add(3,"The boy is behind the box.","p",E(V("👦","📦"),V("📦","👦"),BH("📦","👦")),2);
+/* Round 5 */
+const DOT=c=>({dot:c});
+add(4,"Hello! My name is Mia. I am seven years old.","t",E("Anna","Lucy","Mia"),2,"What is the girl's name?");
+add(4,"I have got a dog. It is black. I like my dog very much.","d",E(DOT("black"),DOT("red"),DOT("brown")),0,"What colour is the dog?");
+add(4,"This is Tom. He likes cake. He does not like pizza.","e",E("🍕","🍰","🥛"),1,"What does Tom like?");
+add(4,"Tom has got pets. He has got four cats.","t",E("2","3","4"),2,"How many cats has Tom got?");
+add(4,"Where is Mum? Mum is in the garden. She is looking at the flowers.","t",E("in the garden","in the kitchen","in the park"),0,"Where is the mum?");
+add(4,"I am in the kitchen. I am making a cake for my friend.","e",E("🥪","🍕","🍰"),2,"What is she making?");
+add(4,"Look at my new bag! It is yellow. I like it.","d",E(DOT("green"),DOT("blue"),DOT("yellow")),2,"What colour is the bag?");
+add(4,"There is a book and an apple in my bag.","e",E("📖🍎","📖⚽","🍌🍎"),0,"What is in the bag?");
+add(4,"Ben is at the window. He can see a car in the street.","e",E("🏠","🚗","🌳"),1,"What can Ben see?");
+add(4,"Look at the bird in the tree. It is blue. It is very small.","d",E(DOT("yellow"),DOT("blue"),DOT("pink")),1,"What colour is the bird?");
+
+/* ---------- STATE ---------- */
+let cur=0,answers=[],plays=0,token=0;
+const $=id=>document.getElementById(id);
+const L=["A","B","C"];
+
+/* ---------- RENDER OPTIONS ---------- */
+function shapeSVG(s,c){
+  const f=COL[c];let p="";
+  if(s==="circle")p=`<circle cx="40" cy="40" r="32" fill="${f}"/>`;
+  if(s==="square")p=`<rect x="10" y="10" width="60" height="60" rx="4" fill="${f}"/>`;
+  if(s==="triangle")p=`<polygon points="40,8 72,70 8,70" fill="${f}"/>`;
+  if(s==="star")p=`<polygon points="40,6 49,29 74,30 54,46 61,70 40,56 19,70 26,46 6,30 31,29" fill="${f}"/>`;
+  if(s==="heart")p=`<path d="M40 70 C8 46 6 22 24 16 C34 13 40 22 40 24 C40 22 46 13 56 16 C74 22 72 46 40 70Z" fill="${f}"/>`;
+  return `<svg viewBox="0 0 80 80" width="80" height="80"><g stroke="#333" stroke-width="3" stroke-linejoin="round">${p.replace(/\/>/g,' />')}</g></svg>`;
+}
+function layHTML(o){
+  if(o.t==="v")return `<div class="lay v"><span>${o.a}</span><span>${o.b}</span></div>`;
+  if(o.t==="h")return `<div class="lay h"><span>${o.a}</span><span>${o.b}</span></div>`;
+  if(o.t==="in")return `<div class="lay"><span class="b">${o.big}</span><span class="s" style="left:50%;top:50%;transform:translate(-50%,-30%)">${o.small}</span></div>`;
+  if(o.t==="on")return `<div class="lay"><span class="b" style="top:62%">${o.big}</span><span class="s" style="left:50%;top:6%;transform:translateX(-30%);font-size:2.6rem">${o.small}</span></div>`;
+  if(o.t==="bh")return `<div class="lay"><span class="s" style="left:56%;top:22%;font-size:2.8rem;z-index:1">${o.small}</span><span class="b" style="left:40%;z-index:2">${o.big}</span></div>`;
+}
+function optHTML(q,o){
+  if(q.kind==="e"){const two=[...o].length>2&&!/^[\u{1F300}-\u{1FAFF}\u2600-\u27BF]\uFE0F?$/u.test(o);return o.length>3||/[\u{1F300}-\u{1FAFF}].*[\u{1F300}-\u{1FAFF}]/u.test(o)?`<span class="two">${o}</span>`:`<span class="big">${o}</span>`;}
+  if(q.kind==="s")return shapeSVG(o.s,o.c);
+  if(q.kind==="p")return layHTML(o);
+  if(q.kind==="d")return `<div class="dot" style="background:${COL[o.dot]}"></div>`;
+  return `<span class="txt">${o}</span>`;
+}
+function showQ(){
+  const q=Q[cur],R=RN[q.r];
+  $("pb").style.width=(cur/Q.length*100)+"%";
+  $("rh").style.background=R.c;
+  const a=q.r*10+1;
+  $("rh").innerHTML=`<span>${R.n}</span><small>Questions ${a}–${a+9}</small>`;
+  $("hint").textContent=R.h;
+  $("qn").textContent=cur+1;$("qn").style.background=R.c;
+  $("qt").textContent=q.q;
+  $("fb").textContent="";$("pstat").textContent="";
+  plays=0;
+  const box=$("opts");box.innerHTML="";
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement("button");b.className="opt";
+    b.innerHTML=`<span class="lt">${L[i]}</span>${optHTML(q,o)}`;
+    b.onclick=()=>choose(i);
+    box.appendChild(b);
+  });
+  if(answers[cur]!==undefined)mark(answers[cur],true);
+  $("prev").disabled=cur===0;
+  $("next").textContent=cur===Q.length-1?"Xem kết quả 🏆":"Câu tiếp ▶";
+}
+function mark(i,silent){
+  const q=Q[cur],bs=$("opts").children;
+  [...bs].forEach(b=>b.classList.add("locked"));
+  bs[q.ans].classList.add("right");
+  if(i!==q.ans)bs[i].classList.add("wrong");
+  $("fb").innerHTML=i===q.ans?"🌟 Giỏi lắm! Correct!":`😊 Chưa đúng. Đáp án là <b>${L[q.ans]}</b>.`;
+  $("fb").style.color=i===q.ans?"#2e7d32":"#c62828";
+}
+function choose(i){
+  if(answers[cur]!==undefined)return;
+  answers[cur]=i;mark(i);
+  speechSynthesis.cancel();token++;
+}
+function go(d){
+  speechSynthesis.cancel();token++;
+  if(cur+d>=Q.length){finish();return;}
+  cur=Math.max(0,cur+d);showQ();
+}
+
+/* ---------- SPEECH ---------- */
+let voice=null;
+function pickVoice(){
+  const v=speechSynthesis.getVoices().filter(x=>/^en/i.test(x.lang));
+  voice=v.find(x=>/en-US/i.test(x.lang)&&/(Samantha|Google US|Jenny|Aria|Female|Zira)/i.test(x.name))||v.find(x=>/en-US/i.test(x.lang))||v[0]||null;
+}
+if("speechSynthesis" in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function say(text,rate){
+  return new Promise(res=>{
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang="en-US";u.rate=rate||0.78;u.pitch=1.1;if(voice)u.voice=voice;
+    u.onend=res;u.onerror=res;speechSynthesis.speak(u);
+  });
+}
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function playQ(){
+  if(!("speechSynthesis" in window)){alert("Trình duyệt không hỗ trợ giọng đọc. Nhờ cô/thầy đọc giúp nhé!");return;}
+  speechSynthesis.cancel();const my=++token;
+  const q=Q[cur];
+  $("play").disabled=true;
+  $("pstat").textContent="🎧 Listen...";
+  await say("Number "+(cur+1)+".",0.8);
+  for(let k=1;k<=2;k++){
+    if(my!==token)break;
+    $("pstat").textContent="🎧 Listen... ("+k+"/2)";
+    await say(q.say);
+    if(my!==token)break;
+    if(q.q&&k===2){await wait(500);if(my!==token)break;await say(q.q);}
+    await wait(1200);
+  }
+  if(my===token){$("pstat").textContent="✅ Chọn đáp án nhé!";}
+  $("play").disabled=false;
+}
+
+/* ---------- FLOW ---------- */
+function startQuiz(){
+  cur=0;answers=[];
+  $("start").classList.add("hidden");$("result").classList.add("hidden");$("teacher").classList.add("hidden");
+  $("quiz").classList.remove("hidden");window.scrollTo(0,0);showQ();
+}
+function finish(){
+  $("quiz").classList.add("hidden");$("result").classList.remove("hidden");window.scrollTo(0,0);
+  let tot=0,rows=`<tr><th>Round</th><th style="text-align:right">Score</th></tr>`;
+  RN.forEach((R,r)=>{
+    let s=0;for(let i=r*10;i<r*10+10;i++)if(answers[i]===Q[i].ans)s++;
+    tot+=s;rows+=`<tr><td style="color:${R.c};font-weight:700">${R.n}</td><td style="text-align:right;font-weight:800">${s} / 10</td></tr>`;
+  });
+  $("rtab").innerHTML=rows;
+  const nm=$("nm").value.trim();
+  $("rname").textContent=nm?("Name: "+nm):"";
+  $("rtotal").textContent="Total: "+tot+" / 50";
+  const st=tot>=45?3:tot>=35?2:tot>=20?1:0;
+  $("rstars").textContent="⭐".repeat(st)+"☆".repeat(3-st);
+  $("rmsg").textContent=st===3?"WOW! You are a Listening Star! 🎉":st===2?"Great job! Giỏi lắm, cố thêm chút nữa nhé! 👏":st===1?"Good try! Em hãy luyện nghe thêm nhé! 💪":"Keep trying! Cô/thầy tin em sẽ làm được! 🌈";
+}
+function plain(q,o){
+  if(q.kind==="s")return o.c+" "+o.s;
+  if(q.kind==="p"){const f=x=>x.t==="v"?`${x.a} above ${x.b}`:x.t==="h"?`${x.a} next to ${x.b}`:x.t==="in"?`${x.small} in ${x.big}`:x.t==="on"?`${x.small} on ${x.big}`:`${x.small} behind ${x.big}`;return f(o);}
+  if(q.kind==="d")return o.dot;
+  return o;
+}
+function showTeacher(){
+  $("start").classList.add("hidden");$("teacher").classList.remove("hidden");
+  let h="";
+  RN.forEach((R,r)=>{
+    h+=`<h3 style="color:${R.c}">${R.n}</h3><table><tr><th style="width:50px">No.</th><th>Teacher reads (2 times)</th><th style="width:120px">Answer</th></tr>`;
+    for(let i=r*10;i<r*10+10;i++){
+      const q=Q[i];
+      h+=`<tr><td>${i+1}</td><td>Number ${i+1}. <i>${q.say}</i>${q.q?`<br><small>Question: ${q.q}</small>`:""}</td><td><b>${L[q.ans]}</b> – ${plain(q,q.opts[q.ans])}</td></tr>`;
+    }
+    h+=`</table>`;
+  });
+  h+=`<h3>Answer summary</h3><p style="font-weight:700;line-height:1.9">`;
+  RN.forEach((R,r)=>{h+=`R${r+1}: `;for(let i=r*10;i<r*10+10;i++)h+=`${i+1}${L[Q[i].ans]} `;h+=`<br>`;});
+  h+=`</p>`;
+  $("tbody").innerHTML=h;
+}
+</script>
+</body>
+</html>
